@@ -3,7 +3,6 @@ import tensorflow as tf
 import cv2
 import tqdm
 from jGAN import Network
-
 import time
 from sklearn.neighbors import NearestNeighbors
 

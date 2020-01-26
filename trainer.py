@@ -92,9 +92,11 @@ def train():
 	        print("gan_loss", gan_loss_value/step_num)
 
 	        if(e%5 == 0):
+	            #============================Save trained model======================================================			
 	            saver = tf.train.Saver()
 	            saver.save(sess, PRETRAIN_PATH + str(sess.run(epoch)), write_meta_graph=True)
 
+	            #===================Extract PseudoImage Features======================================================		
 	            out_feature1 = []
 	            N1 = len(t2_data)
 	            idx_inner = [i for i in range(N1)]
@@ -105,6 +107,7 @@ def train():
 	                out_feature1.append(f)
 	            out_feature1 = np.reshape(out_feature1,[np.shape(out_feature1)[0]*np.shape(out_feature1)[1],np.shape(out_feature1)[2]])
 	            print(np.shape(out_feature1))
+			
 	            #===================Precision and mAP Calculation======================================================
 	            pred_img = out_feature1
 	            test_img = t1_data

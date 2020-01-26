@@ -214,32 +214,7 @@ class Network:
         fake_d6_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D6_fake, labels=tf.zeros_like(self.D6_fake)))
         loss = loss +real_d5_loss+fake_d5_loss+real_d6_loss+fake_d6_loss
         #--------------------------------------
-
         return loss
-
-
-    # def compute_MMD_loss(self, H_fake, H_real):
-    #     kxx, kxy, kyy = 0, 0, 0
-    #     dividend = 1
-    #     dist_x, dist_y = H_fake/dividend, H_real/dividend
-    #     x_sq = tf.expand_dims(tf.reduce_sum(dist_x**2,axis=1), 1)   #  64*1
-    #     y_sq = tf.expand_dims(tf.reduce_sum(dist_y**2,axis=1), 1)    #  64*1
-    #     dist_x_T = tf.transpose(dist_x)
-    #     dist_y_T = tf.transpose(dist_y)
-    #     x_sq_T = tf.transpose(x_sq)
-    #     y_sq_T = tf.transpose(y_sq)
-
-    #     tempxx = -2*tf.matmul(dist_x,dist_x_T) + x_sq + x_sq_T  # (xi -xj)**2
-    #     tempxy = -2*tf.matmul(dist_x,dist_y_T) + x_sq + y_sq_T  # (xi -yj)**2
-    #     tempyy = -2*tf.matmul(dist_y,dist_y_T) + y_sq + y_sq_T  # (yi -yj)**2
-
-    #     sigma_range = [5]
-    #     for sigma in sigma_range:
-    #         kxx += tf.reduce_mean(tf.exp(-tempxx/2/(sigma**2)))
-    #         kxy += tf.reduce_mean(tf.exp(-tempxy/2/(sigma**2)))
-    #         kyy += tf.reduce_mean(tf.exp(-tempyy/2/(sigma**2)))
-    #     gan_cost_g = tf.sqrt(kxx + kyy - 2*kxy)
-    #     return gan_cost_g
 
     def calc_g_loss(self):
         g1_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D1_fake, labels=tf.ones_like(self.D1_fake)))

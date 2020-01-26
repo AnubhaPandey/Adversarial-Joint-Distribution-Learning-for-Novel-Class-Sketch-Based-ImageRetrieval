@@ -10,13 +10,13 @@ We have used the ResNet-152 network pre-trained on the ImageNet-1000 dataset to 
 2. trainAttribute.npy -- It is a (104000, 2348) dimension matrix. It has 2048 dimensional features extracted from the ResNet-152 network corresponding to the sketches in the train set concatenated with the 300 dimensions word2vec representation of the class labels of the sketches. However, as you can see in the code, we have not used the word2vec representation of the class labels to train/test the network.
 
 ###Test set
-1. testData.py -- contains features of images in the test set of dimensions (10453, 2048) extracted from the ResNet-152 network. 
+1. testData.npy -- contains features of images in the test set of dimensions (10453, 2048) extracted from the ResNet-152 network. 
 
-2. testLabel.py -- contains class labels of the images in the testData.py. It is of dimension (10453,1).
+2. testLabel.npy -- contains class labels of the images in the testData.py. It is of dimension (10453,1).
 
-3. AlltestAttribute.py -- It is a (12694, 2348) dimension matrix. It has 2048 dimensional features extracted from the ResNet-152 network corresponding to the sketches in the test set concatenated with the 300 dimensions word2vec representation of the class labels of the sketches. However, as you can see in the code, we have not used the word2vec representation of the class labels to train/test the network.
+3. AlltestAttribute.npy -- It is a (12694, 2348) dimension matrix. It has 2048 dimensional features extracted from the ResNet-152 network corresponding to the sketches in the test set concatenated with the 300 dimensions word2vec representation of the class labels of the sketches. However, as you can see in the code, we have not used the word2vec representation of the class labels to train/test the network.
 
-4. AlltestAttribute-label.py -- It contains class labels of sketches in the AlltestAttribute.py file.
+4. AlltestAttribute-label.npy -- It contains class labels of sketches in the AlltestAttribute.py file.
 
 
 For further details, please refer to our paper http://openaccess.thecvf.com/content_ICCVW_2019/papers/MDALC/Pandey_Adversarial_Joint-Distribution_Learning_for_Novel_Class_Sketch-Based_Image_Retrieval_ICCVW_2019_paper.pdf

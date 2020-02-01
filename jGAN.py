@@ -4,7 +4,7 @@ from mmd_loss import *
 class Network:
     def __init__(self, x, y, is_training, batch_size):
         self.batch_size = batch_size
-        #y -- video feature, x -- text embedding
+        #y -- image feature, x -- sketch feature
         self.x = x
         self.y = y
         #1. q(x)p(y|x)
